@@ -1,0 +1,37 @@
+version: '2.3'
+services:
+  todo-fe:
+    image: node:lts-alpine
+    command: sh -c "cd /app; npm ci --prefer-offline --no-audit; npm start"
+    container_name: todo-fe
+    ports:
+      - 3000:3000
+    environment:
+      NO_UPDATE_NOTIFIER: 1
+    networks:
+      - 'todo-net'
+    volumes:
+      - ./fe:/app
+      - /app/node_modules
+  todo-be:
+    image: node:lts-alpine
+    command: sh -c "cd /app; npm ci --prefer-offline --no-audit; npm start"
+    container_name: todo-be
+    environment:
+      NO_UPDATE_NOTIFIER: 1
+    networks:
+      - 'todo-net'
+    volumes:
+      - ./be:/app
+      - /app/node_modules
+  todo-db:
+    image: mongo:latest
+    container_name: todo-db
+    restart: always
+    networks:
+      - 'todo-net'
+    volumes:
+      - ./.data:/data/db
+networks:
+  todo-net:
+    driver: bridge

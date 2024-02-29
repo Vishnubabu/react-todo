@@ -1,0 +1,116 @@
+.todos {
+    width: 550px;
+    margin: auto;
+
+    h1 {
+        text-align: center;
+        color: #b83f45;
+        font-size: 80px;
+        font-weight: 200;
+        margin: 20px 0;
+        text-transform: lowercase;
+    }
+
+    .box {
+        background: #fff;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2), 0 25px 50px 0 rgba(0, 0, 0, .1);
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                border-top: 1px solid #ededed;
+                font-size: 24px;
+                padding: 0;
+                margin: 0;
+                height: 58px;
+                cursor: default;
+
+                form {
+                    width: 100%;
+                }
+
+                input[type="checkbox"] {
+                    width: 40px;
+                    height: 40px;
+                    background-color: white;
+                    vertical-align: middle;
+                    border: none;
+                    appearance: none;
+                    outline: none;
+                    cursor: pointer;
+                    margin: 0 10px 0 0;
+                    padding: 0;
+                    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23949494%22%20stroke-width%3D%223%22/%3E%3C/svg%3E");
+
+                    &:checked {
+                        background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%2359A193%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20fill%3D%22%233EA390%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22%2F%3E%3C%2Fsvg%3E");
+                    }
+                }
+
+                span {
+                    cursor: pointer;
+
+                    &.done {
+                        text-decoration: line-through;
+                    }
+                }
+
+                .close {
+                    margin-left: auto;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    color: #949494;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border: none;
+                    background: none;
+
+                    &:hover {
+                        color: #c18585;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            border-top: 1px solid #e6e6e6;
+            align-items: center;
+
+            & :nth-child(1) {
+                width: 90px;
+            }
+
+            & :nth-child(2),
+            & :nth-child(5) {
+                margin-left: auto;
+            }
+
+            & :nth-child(2),
+            & :nth-child(3),
+            & :nth-child(4),
+            & :nth-child(5) {
+                cursor: pointer;
+                padding: 3px 7px;
+                border: 1px solid transparent;
+                border-radius: 3px;
+
+                &:hover,
+                &.selected {
+                    border-color: #ce4646;
+                }
+
+                &.selected {
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
